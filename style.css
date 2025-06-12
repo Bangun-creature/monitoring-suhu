@@ -141,6 +141,11 @@
     padding: 4rem 5%;
   }
 
+  .main,
+  .button-relay {
+    width: 95%;
+  }
+
   .main .value .temperature {
     font-size: 8rem;
   }
