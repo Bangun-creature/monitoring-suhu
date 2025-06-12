@@ -138,6 +138,7 @@
       "button"
       "graph";
     grid-template-columns: 1fr;
+    padding: 4rem 5%;
   }
 
   .main .value .temperature {
