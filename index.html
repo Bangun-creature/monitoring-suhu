@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MQTT Data Viewer</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <h1>Temperature dari ESP32:</h1>
+    <div id="temperature">Menunggu data...</div> -->
+    <div class="title-text">
+        <h2>Monitoring System</h2>
+    </div>
+    <div class="system-container">
+      <div class="main">
+        <div class="value">
+          <div class="temperature">
+            <h3>30°</h3>
+            <span>celcius</span>
+          </div>
+          <div class="humidity">
+            <h4>40% <span>RH</span></h4>
+          </div>
+        </div>
+        <div class="status">
+          <div class="status-temp">
+            <span>Suhu</span>
+            <p>Normal</p>
+          </div>
+          <div class="status-hum">
+            <span>Kelembapan</span>
+            <p>Normal</p>
+          </div>
+        </div>
+      </div>
+      <div class="button-relay">
+        <div class="on">
+          <button>ON</button>
+        </div>
+        <div class="off">
+          <button>OFF</button>
+        </div>
+      </div>
+      <!-- <div class="graph-container">
+        <h2>graph</h2> -->
+      </div>
+    </div>
+
+    <script>
+      // 1. Connect ke broker HiveMQ via WebSocket
+      const client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt");
+
+      // 2. Subscribe ke topic yang sesuai
+      client.on("connect", () => {
+        console.log("Terhubung ke broker MQTT");
+        client.subscribe("esp32/bangun/temperature");
+      });
+
+      // 3. Terima data dan tampilkan
+      client.on("message", (topic, message) => {
+        if (topic === "esp32/bangun/temperature") {
+          const data = message.toString();
+          console.log(`Data suhu {${data}} diterima`); // <-- Ini tambahannya
+          document.getElementById("temperature").innerText = `Suhu: ${data}°C`;
+        }
+      });
+    </script>
+  </body>
+</html>

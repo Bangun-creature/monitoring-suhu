@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title-text {
+  padding: 1.5rem 7% 0rem;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.system-container {
+  padding: 4rem 7%;
+  /* height: 100vh;
+  width: 100vw; */
+  /* background-color: blueviolet; */
+  display: grid;
+  grid-template-areas: "main button";
+  gap: 1rem;
+  grid-template-columns: 60% 40%;
+  /* grid-template-rows: 1fr; */
+}
+
+.main {
+  width: 100%;
+  grid-area: main;
+  display: grid;
+  grid-template-areas: "value status";
+  grid-template-columns: 1fr 0.5fr;
+  /* background-color: red; */
+}
+
+.button-relay {
+  grid-area: button;
+  /* background-color: yellow; */
+}
+
+.graph-container {
+  grid-area: graph;
+  /* background-color: aqua; */
+}
+
+.main,
+.button-relay {
+  /* display: flex; */
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  width: 100%;
+  height: fit-content;
+}
+
+.main .value {
+  grid-area: value;
+  width: 100%;
+}
+
+.main .value .temperature {
+  background-color: green;
+  color: white;
+  font-size: 4rem;
+}
+
+.main .value .temperature span {
+  font-size: 2.5rem;
+}
+
+.main .value .humidity {
+  background-color: blue;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.main .value .humidity span {
+  font-size: 1.1rem;
+}
+
+.main .value .temperature,
+.main .value .humidity {
+  padding: 1rem;
+}
+
+.main .status {
+  grid-area: status;
+  background-color: grey;
+  color: white;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.main .status .status-temp,
+.main .status .status-hum {
+  padding: 1rem;
+}
+
+.button-relay {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.button-relay button {
+  padding: 1rem 3rem;
+  border: none;
+  font-size: 3.6rem;
+}
+
+.button-relay .on button {
+  background-color: orange;
+  color: white;
+}
+
+.button-relay .off button {
+  background-color: brown;
+  color: white;
+}
+
+.graph-container {
+  width: 80%;
+  height: 85%;
+  background-color: black;
+  color: white;
+}
+
+@media screen and (max-width: 576px) {
+  .system-container {
+    grid-template-areas:
+      "main"
+      "button"
+      "graph";
+    grid-template-columns: 1fr;
+  }
+
+  .main .value .temperature {
+    font-size: 8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main .value .temperature span {
+    font-size: 4rem;
+  }
+
+  .main .value .humidity {
+    font-size: 5.4rem;
+  }
+
+  .main .value .humidity span {
+    font-size: 3.2rem;
+  }
+
+  .main .status .status-temp span,
+  .main .status .status-hum span {
+    font-size: 3rem;
+  }
+
+  .main .status .status-temp p,
+  .main .status .status-hum p {
+    font-size: 2.8rem;
+  }
+
+  .button-relay button {
+    padding: 3rem 6rem;
+    border: none;
+    font-size: 7rem;
+  }
+}
