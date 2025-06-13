@@ -6,30 +6,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- <h1>Temperature dari ESP32:</h1>
-    <div id="temperature">Menunggu data...</div> -->
     <div class="title-text">
-        <h2>Monitoring System</h2>
+      <h2>Monitoring System</h2>
     </div>
     <div class="system-container">
       <div class="main">
         <div class="value">
           <div class="temperature">
-            <h3>30°</h3>
+            <h3 id="temp-value">--°</h3>
             <span>celcius</span>
           </div>
           <div class="humidity">
-            <h4>40% <span>RH</span></h4>
+            <h4 id="hum-value">--% <span>RH</span></h4>
           </div>
         </div>
         <div class="status">
           <div class="status-temp">
             <span>Suhu</span>
-            <p>Normal</p>
+            <p id="temp-status">Normal</p>
           </div>
           <div class="status-hum">
             <span>Kelembapan</span>
-            <p>Normal</p>
+            <p id="hum-status">Normal</p>
           </div>
         </div>
       </div>
@@ -41,27 +39,33 @@
           <button>OFF</button>
         </div>
       </div>
-      <!-- <div class="graph-container">
-        <h2>graph</h2> -->
-      </div>
     </div>
 
     <script>
-      // 1. Connect ke broker HiveMQ via WebSocket
+      // Koneksi ke broker MQTT
       const client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt");
 
-      // 2. Subscribe ke topic yang sesuai
       client.on("connect", () => {
         console.log("Terhubung ke broker MQTT");
         client.subscribe("esp32/bangun/temperature");
+        client.subscribe("esp32/bangun/humidity");
       });
 
-      // 3. Terima data dan tampilkan
       client.on("message", (topic, message) => {
+        const data = parseFloat(message.toString());
+
         if (topic === "esp32/bangun/temperature") {
-          const data = message.toString();
-          console.log(`Data suhu {${data}} diterima`); // <-- Ini tambahannya
-          document.getElementById("temperature").innerText = `Suhu: ${data}°C`;
+          document.getElementById("temp-value").innerText = `${data.toFixed(
+            1
+          )}°`;
+          updateTempStatus(data);
+        }
+
+        if (topic === "esp32/bangun/humidity") {
+          document.getElementById("hum-value").innerHTML = `${data.toFixed(
+            1
+          )}% <span>RH</span>`;
+          updateHumStatus(data);
         }
       });
     </script>
