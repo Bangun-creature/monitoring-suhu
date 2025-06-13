@@ -2,13 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .title-text {
   padding: 1.5rem 7% 0rem;
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .system-container {
@@ -29,8 +31,16 @@
   grid-area: main;
   display: grid;
   grid-template-areas: "value status";
+  gap: 0.8rem;
   grid-template-columns: 1fr 0.5fr;
   /* background-color: red; */
+}
+
+.main .value,
+.main .status,
+.button-relay button {
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .button-relay {
@@ -46,7 +56,7 @@
 .main,
 .button-relay {
   /* display: flex; */
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  /* border: 1px solid rgba(0, 0, 0, 0.4); */
   padding: 1rem;
   width: 80%;
   height: fit-content;
@@ -55,6 +65,8 @@
 .main .value {
   grid-area: value;
   width: 100%;
+  background-color: white;
+  overflow: hidden;
 }
 
 .main .value .temperature {
@@ -88,6 +100,24 @@
   padding: 0.2rem 1rem;
 }
 
+.main .value .temperature #temp-value,
+.main .value .humidity #hum-value {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.main .value .temperature span,
+.main .value .humidity span {
+  font-weight: 500;
+}
+
+.main .value .temperature span,
+.main .value .humidity span,
+.main .status,
+.button-relay {
+  font-family: "Quicksand", sans-serif;
+}
+
 .main .status {
   grid-area: status;
   background-color: grey;
@@ -102,6 +132,16 @@
   padding: 0.2rem 1rem;
 }
 
+.main .status .status-temp span,
+.main .status .status-hum span {
+  font-weight: 500;
+}
+
+.main .status .status-temp p,
+.main .status .status-hum p {
+  font-weight: 400;
+}
+
 .button-relay {
   display: flex;
   gap: 0.4rem;
@@ -111,16 +151,16 @@
 .button-relay button {
   padding: 0.2rem 1rem;
   border: none;
-  font-size: 3.6rem;
+  font-size: 2rem;
 }
 
 .button-relay .on button {
-  background-color: orange;
+  background-color: rgb(23, 151, 202);
   color: white;
 }
 
 .button-relay .off button {
-  background-color: brown;
+  background-color: red;
   color: white;
 }
 
@@ -147,11 +187,11 @@
   }
 
   .main .value .temperature {
-    font-size: 8rem;
+    font-size: 10rem;
   }
 
   .main .value .temperature span {
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
 
   .main .value .humidity {
@@ -159,21 +199,23 @@
   }
 
   .main .value .humidity span {
-    font-size: 3.2rem;
+    font-size: 2rem;
   }
 
   .main .status .status-temp span,
   .main .status .status-hum span {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .main .status .status-temp p,
   .main .status .status-hum p {
-    font-size: 2.8rem;
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
   }
 
   .button-relay button {
     border: none;
-    font-size: 7rem;
+    font-size: 4rem;
+    padding: 1rem 2.8rem;
   }
 }

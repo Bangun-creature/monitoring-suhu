@@ -4,29 +4,35 @@
     <title>MQTT Data Viewer</title>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="title-text">
-      <h2>Monitoring System</h2>
+      <p>Monitoring System</p>
     </div>
     <div class="system-container">
       <div class="main">
         <div class="value">
           <div class="temperature">
-            <h3 id="temp-value">--°</h3>
+            <h3 id="temp-value">30°</h3>
             <span>celcius</span>
           </div>
           <div class="humidity">
-            <h4 id="hum-value">--% <span>RH</span></h4>
+            <h4 id="hum-value">10% <span>RH</span></h4>
           </div>
         </div>
         <div class="status">
           <div class="status-temp">
-            <span>Suhu</span>
+            <span>Temperature</span>
             <p id="temp-status">Normal</p>
           </div>
           <div class="status-hum">
-            <span>Kelembapan</span>
+            <span>humidity</span>
             <p id="hum-status">Normal</p>
           </div>
         </div>
