@@ -58,14 +58,12 @@
           document.getElementById("temp-value").innerText = `${data.toFixed(
             1
           )}°`;
-          updateTempStatus(data);
         }
 
         if (topic === "esp32/bangun/humidity") {
           document.getElementById("hum-value").innerHTML = `${data.toFixed(
             1
           )}% <span>RH</span>`;
-          updateHumStatus(data);
         }
       });
     </script>
