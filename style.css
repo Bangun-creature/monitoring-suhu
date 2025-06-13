@@ -120,7 +120,7 @@
 
 .main .status {
   grid-area: status;
-  background-color: grey;
+  background-color: #242124;
   color: white;
   width: 100%;
   display: grid;
