@@ -152,6 +152,7 @@
   padding: 0.2rem 1rem;
   border: none;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .button-relay .on button {
@@ -159,9 +160,17 @@
   color: white;
 }
 
+.button-relay .on button:hover {
+  background-color: rgb(14, 112, 151);
+}
+
 .button-relay .off button {
   background-color: red;
   color: white;
+}
+
+.button-relay .off button:hover {
+  background-color: rgb(167, 24, 24);
 }
 
 .graph-container {
