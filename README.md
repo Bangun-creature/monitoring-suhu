@@ -16,3 +16,12 @@ JavaScript DOM digunakan untuk menampilkan data sensor suhu berupa suhu dan kele
 ### 4. Kontrol Kendali LED (Sebagai Indikator Kipas)
 Untuk menghidupkan lampu LED merah dan kuning, digunakan method publish(...), dan di ESP32 akan melakukan subscribe(...) untuk menerima data status lampu LED tersebut.
 Dimana jika lampu LED merah hidup = Kipas Dimisalkan mati, dan lampu LED kuning hidup = Kipas Dimisalkan Hidup.
+
+## Hasil Akhir 
+### 1. Sebelum ESP32 Hidup (Data Belum Dikirimkan)
+![Screenshot_2025-06-14-17-44-22-936_com android chrome](https://github.com/user-attachments/assets/543c748e-435c-4d2c-bc94-8d71166184ad)
+
+### 2. Setelah ESP32 Hidup (Data Sudah Dikirimkan)
+![Screenshot_2025-06-13-21-34-11-974_com android chrome](https://github.com/user-attachments/assets/2f73d17b-639e-4543-af92-2d8dae32b25a)
+
+
