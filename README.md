@@ -1,5 +1,8 @@
 # Monitoring dan Kontrol Suhu Menggunakan Komunikasi MQTT
 ## Tujuan Project
+### Rancangan Hardware
+![rangkaianWokwi png](https://github.com/user-attachments/assets/8efb5268-b627-457d-983d-fecb0d6af53f)
+
 ## Cara Kerja Perangkat Internet of Things
 ### 1. Data dari Sensor DHT-11 Dibaca oleh ESP32
 ### 2. Data Pengukuran Sensor DHT-11 Dikirimkan ke Website Monitoring 
